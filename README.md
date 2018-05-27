@@ -30,12 +30,13 @@ the following lines have been added to the .bash_profile:
 **Others to install
 
 For mac (https://brew.sh/):
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install git
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install fortune
+	brew install git
 
-brew install cowsay
+	brew install fortune
 
-brew install lolcat
+	brew install cowsay
+
+	brew install lolcat
