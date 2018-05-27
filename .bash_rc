@@ -1,0 +1,72 @@
+# NOTE: For mac osx ~/.bash_profile will source ~/.bash_rc
+
+# Copy and paste from clipboard
+set clipboard=unnamedplus
+
+# Change Colours of the prompt
+# http://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
+# 
+# Color    Code
+# Black    0;30
+# Red      0;31
+# Green    0;32
+# Brown    0;33
+# Blue     0;34
+# Purple   0;35
+# Cyan     0;36
+# White    0:37
+# 0;31 Dark Red or 1;31 Light Red 
+export PS1='\[\033[1;36m\][\u@\h]\[\033[0m\]:\[\033[01;36m\]\w\[\033[00m\] \e[33;44;1m$(__git_ps1 "(%s)")\e[0m\n\$ '
+
+#	ls Attribute | Foreground color |  Background color
+#	-------------|------------------|-----------------
+#	directory    | e	        |  x
+#	symbolic     | f	        |  x
+#	socket	     | c	        |  x
+#	pipe	     | d	        |  x
+#	executable   | b	        |  x
+#	block	     | e	        |  g
+#	character    | e	        |  d
+#	executable   | a	        |  b
+#	executable   | a	        |  g
+#	directory    | a	        |  c
+#	directory    | a	        |  d
+#	
+#	The color and their code values are as follows:
+#	
+#	Code | Meaning (Color)
+#	-----|---------------------------------------------
+#	a    | Black
+#	b    | Red
+#	c    | Green
+#	d    | Brown
+#	e    | Blue
+#	f    | Magenta
+#	g    | Cyan
+#	h    | Light grey
+#	---------------------------------------------------
+#	A    | Bold black, usually shows up as dark grey
+#	B    | Bold red
+#	C    | Bold green
+#	D    | Bold brown, usually shows up as yellow
+#	E    | Bold blue
+#	F    | Bold magenta
+#	G    | Bold cyan
+#	H    | Bold light grey; looks like bright white
+#	x    | Default foreground or background
+	
+export CLICOLOR=1
+#LSCOLORS="ExFxBxDxCxegedabagacad" # For lighter terminal themes?
+LSCOLORS="GxFxCxDxBxegedabagaced" # For darker terminal themes
+#LSCOLORS="EHfxcxdxBxegecabagacad" 
+export LSCOLORS
+
+# list the current directory relative to my home dir as tab name
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
+
+# NOTE: Brew:
+# If unable to link a command after install use:
+# sudo chown -R $(whoami) /usr/local
+# and re run the command
+# brew link <command>
+
