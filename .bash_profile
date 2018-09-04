@@ -1,25 +1,21 @@
 export PATH="/usr/local/sbin:$PATH" # Homebrew's sbin
-#export PATH="$PATH:~/.rvm/bin" # Add RVM to PATH for scripting
-#export PATH="$PATH:~/instantclient_12_1" # Add SqlPlus to PATH
+export PATH="$PATH:~/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:~/instantclient_12_2" # Add SqlPlus to PATH
 export PATH="$PATH:/usr/local/bin" # Custom 
 export PATH="$PATH:~/.composer/vendor/bin"
 
-#export NVM_DIR="/Users/`whoami`/.nvm"
-#export TNS_ADMIN=~/instantclient_12_1
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home
+export NVM_DIR="/Users/`whoami`/.nvm"
+export TNS_ADMIN=~/instantclient_12_2
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home
+export ORACLE_HOME="/Users/`whoami`/instantclient_12_2"
+export ORACLE_PATH=$ORACLE_HOME
+export SQLPATH=$ORACLE_HOME
+export LD_LIBRARY_PATH=$ORACLE_HOME
 
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
-esac
-
-if [ $machine = "Mac" ]; then
-	unset MAILCHECK
+# AWS
+if [ -f ~/.bash_aws_custom ]; then
+	source ~/.bash_aws_custom
 fi
 
 # Enable git bash prompts
@@ -37,7 +33,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-
 function randomsay() 
 {
     cows=(`cowsay -l | grep -v '/'`)
@@ -47,3 +42,7 @@ function randomsay()
 
 randomsay
 
+# Custom Project Folder
+if [ -d ~/Projects/saxdev ]; then
+ cd ~/Projects/saxdev
+fi

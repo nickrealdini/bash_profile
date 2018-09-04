@@ -70,3 +70,4 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 # and re run the command
 # brew link <command>
 
+cd ~/Projects
